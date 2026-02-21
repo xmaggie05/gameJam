@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dqw0jykn1k8dm"]
+
+[ext_resource type="Script" uid="uid://c5plkja884l4e" path="res://Scenes/main_menu.gd" id="1_28flt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rhts7"]
+
+[node name="MainMenu" type="Control" unique_id=1955857486]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_28flt")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=310258427]
+layout_mode = 0
+offset_right = 647.0
+offset_bottom = 485.0
+texture = SubResource("CanvasTexture_rhts7")
+
+[node name="Button" type="Button" parent="." unique_id=1105383431]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 201.0
+offset_right = 391.0
+offset_bottom = 256.0
+
+[node name="Label" type="Label" parent="Button" unique_id=1676094870]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 18.0
+offset_right = 109.0
+offset_bottom = 41.0
+text = "start"
+
+[node name="Button2" type="Button" parent="." unique_id=1820636101]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 274.0
+offset_right = 390.0
+offset_bottom = 329.0
+
+[node name="Label" type="Label" parent="Button2" unique_id=1919173808]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 14.0
+offset_right = 112.0
+offset_bottom = 37.0
+text = "exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dcp6erohteg20"]
+
+[ext_resource type="Script" uid="uid://biepbkr5iwuws" path="res://Characters/airplane.gd" id="1_sg5er"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_68eh7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybvld"]
+size = Vector2(45, 20)
+
+[node name="Airplane" type="CharacterBody2D" unique_id=1580239814]
+script = ExtResource("1_sg5er")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1498471734]
+position = Vector2(1.9073486e-06, 4.7683716e-07)
+scale = Vector2(57.5, 26.375002)
+texture = SubResource("PlaceholderTexture2D_68eh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=148049503]
+shape = SubResource("RectangleShape2D_ybvld")

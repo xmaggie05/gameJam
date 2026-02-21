@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b26hcuxyj4i"]
+
+[ext_resource type="PackedScene" uid="uid://dcp6erohteg20" path="res://Characters/airplane.tscn" id="1_6n6at"]
+[ext_resource type="Script" uid="uid://4xri72jb2d64" path="res://Levels/airplane_level.gd" id="1_s8emw"]
+[ext_resource type="PackedScene" uid="uid://chxbmi6c8ourw" path="res://bird.tscn" id="3_dcr10"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7gf5x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqlma"]
+size = Vector2(673, 105)
+
+[node name="AirplaneLevel" type="Node2D" unique_id=375056364]
+script = ExtResource("1_s8emw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=864975025]
+offset_right = 4968.0
+offset_bottom = 483.0
+texture = SubResource("CanvasTexture_7gf5x")
+
+[node name="Ground" type="Area2D" parent="." unique_id=379179869]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=994871830]
+position = Vector2(321, 516)
+shape = SubResource("RectangleShape2D_iqlma")
+
+[node name="Ground2" type="Area2D" parent="." unique_id=741896821]
+position = Vector2(388, 47)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2" unique_id=699630327]
+position = Vector2(-59, -86)
+shape = SubResource("RectangleShape2D_iqlma")
+
+[node name="Airplane" parent="." unique_id=1580239814 instance=ExtResource("1_6n6at")]
+position = Vector2(137, 244)
+
+[node name="bird" parent="." unique_id=569822816 instance=ExtResource("3_dcr10")]
+position = Vector2(111, 187)
