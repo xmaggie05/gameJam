@@ -11,7 +11,7 @@ size = Vector2(45, 20)
 script = ExtResource("1_sg5er")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1498471734]
-position = Vector2(1.9073486e-06, 4.7683716e-07)
+position = Vector2(1.1368684e-13, 2.842171e-14)
 scale = Vector2(57.5, 26.375002)
 texture = SubResource("PlaceholderTexture2D_68eh7")
 

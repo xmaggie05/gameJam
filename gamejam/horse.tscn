@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://1r650kmffcep"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1x4sx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eplvg"]
+
+[node name="horse" type="CharacterBody2D" unique_id=1562125514]
+scale = Vector2(1.8422847, 1.8822283)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=17444712]
+position = Vector2(0, -1.1920929e-07)
+scale = Vector2(19.12323, 30.531914)
+texture = SubResource("PlaceholderTexture2D_1x4sx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1380420233]
+shape = SubResource("CapsuleShape2D_eplvg")
+debug_color = Color(0.54509807, 0.3019608, 0.18039216, 1)

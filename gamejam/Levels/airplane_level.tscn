@@ -13,8 +13,10 @@ size = Vector2(673, 105)
 script = ExtResource("1_s8emw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=864975025]
-offset_right = 4968.0
-offset_bottom = 483.0
+offset_left = 7.0
+offset_top = -7.0
+offset_right = 4975.0
+offset_bottom = 476.0
 texture = SubResource("CanvasTexture_7gf5x")
 
 [node name="Ground" type="Area2D" parent="." unique_id=379179869]
