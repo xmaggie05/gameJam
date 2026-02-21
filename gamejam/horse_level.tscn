@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://4bcicnbc2hx2"]
+
+[ext_resource type="Script" uid="uid://s2eay6634fo0" path="res://horse_level.gd" id="1_i45n8"]
+[ext_resource type="PackedScene" uid="uid://1r650kmffcep" path="res://horse.tscn" id="2_2g8bj"]
+[ext_resource type="Texture2D" uid="uid://cnobtfbi3lsko" path="res://Assets/grass.png" id="2_jhby4"]
+[ext_resource type="Script" uid="uid://bms66oumxayxe" path="res://grass_background.gd" id="2_rcdom"]
+[ext_resource type="Script" uid="uid://cibf3yonx8if1" path="res://horse.gd" id="3_2g8bj"]
+[ext_resource type="PackedScene" uid="uid://c13th4apwvmq5" path="res://fence.tscn" id="4_pyqi7"]
+[ext_resource type="Script" uid="uid://bw833p2wpsbhv" path="res://fence_timer.gd" id="7_rcdom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhby4"]
+size = Vector2(10.6764965, 20)
+
+[node name="horse_level" type="Node2D" unique_id=1914466682]
+script = ExtResource("1_i45n8")
+
+[node name="horse" parent="." unique_id=1562125514 instance=ExtResource("2_2g8bj")]
+position = Vector2(80, 393.99997)
+scale = Vector2(2.799388, -2.8331904)
+script = ExtResource("3_2g8bj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1025800163]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=604193491]
+position = Vector2(3445, 477)
+rotation = 3.1415927
+scale = Vector2(644.49744, -4.034542)
+shape = SubResource("RectangleShape2D_jhby4")
+
+[node name="grassBackground" type="ParallaxBackground" parent="." unique_id=1179324920]
+script = ExtResource("2_rcdom")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="grassBackground" unique_id=2138095943]
+position = Vector2(2, -1)
+motion_mirroring = Vector2(640, 0)
+
+[node name="background" type="Sprite2D" parent="grassBackground/ParallaxLayer" unique_id=122110788]
+position = Vector2(319, 240)
+texture = ExtResource("2_jhby4")
+
+[node name="fence" parent="." unique_id=1528565561 instance=ExtResource("4_pyqi7")]
+position = Vector2(703, 418.00003)
+scale = Vector2(0.6880496, 0.6880496)
+
+[node name="fenceTimer" type="Timer" parent="." unique_id=1514286109]
+wait_time = 1.5
+autostart = true
+script = ExtResource("7_rcdom")
+
+[connection signal="timeout" from="fenceTimer" to="." method="_on_fence_timer_timeout"]
