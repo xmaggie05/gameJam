@@ -1,18 +1,34 @@
 extends CharacterBody2D
 
-var velocty = Vector2.ZERO
-var jump_velocity = Vector2.UP * 1000
-var speed_velocity = Vector2.RIGHT * 1000000
-var gravity = Vector2.DOWN * 2400
+var jump_force = 400.0
+var gravity = 900.0
+var fast_fall_gravity = 5000.0
+var max_fall_speed = 1200.0
 
-func _process(delta):
-	#makes the user jump
-	if Input.is_action_just_pressed("up") and is_on_floor():
-		velocity = jump_velocity
+@onready var animation = $AnimationPlayer
+
+func _physics_process(delta):
+
+	# Apply gravity
 	if !is_on_floor():
-		velocity += gravity * delta
-	
-	move_and_slide()
+		if Input.is_action_pressed("down"):
+			velocity.y += fast_fall_gravity * delta
+		else:
+			velocity.y += gravity * delta
 
-func fence_hit():
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+		# Clamp fall speed
+		velocity.y = min(velocity.y, max_fall_speed)
+
+	# Jump
+	if Input.is_action_just_pressed("up") and is_on_floor():
+		velocity.y = -jump_force
+
+	# Animation
+	if !is_on_floor():
+		if animation.current_animation != "jump":
+			animation.play("jump")
+	else:
+		if animation.current_animation != "walk":
+			animation.play("walk")
+
+	move_and_slide()

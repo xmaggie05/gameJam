@@ -1,7 +1,7 @@
 extends Timer
 
 var mintime = 1.0
-var maxtime = 4.0
+var maxtime = 3.0
 
 func _ready():
 	timeout.connect(randtime)
@@ -11,3 +11,5 @@ func _ready():
 func randtime():
 	wait_time = randf_range(mintime, maxtime)
 	start()
+	
+	
