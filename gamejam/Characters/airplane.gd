@@ -19,6 +19,7 @@ func _process(delta):
 		return
 
 	if Input.is_action_just_pressed("up"):
+		$"../Jumpplane".play()
 		flying = true
 		flap()
 	else:

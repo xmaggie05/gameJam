@@ -47,6 +47,7 @@ stretch_mode = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2098586367]
 stream = ExtResource("6_opfnp")
+volume_db = 24.0
 autoplay = true
 
 [node name="cloud" type="Sprite2D" parent="." unique_id=1320820936]

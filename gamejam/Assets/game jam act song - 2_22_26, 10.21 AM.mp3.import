@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://00pvi8hjujst"
+path="res://.godot/imported/game jam act song - 2_22_26, 10.21 AM.mp3-295a042a319949151b433c9f7272437b.mp3str"
+
+[deps]
+
+source_file="res://Assets/game jam act song - 2_22_26, 10.21 AM.mp3"
+dest_files=["res://.godot/imported/game jam act song - 2_22_26, 10.21 AM.mp3-295a042a319949151b433c9f7272437b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
