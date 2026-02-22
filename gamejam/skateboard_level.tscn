@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://baacal63rymut"]
+
+[ext_resource type="Script" uid="uid://b75d2h5byhuht" path="res://skateboard_level.gd" id="1_cs6kp"]
+[ext_resource type="PackedScene" uid="uid://c42g3gii6apd" path="res://skater.tscn" id="2_ookq3"]
+[ext_resource type="Shader" uid="uid://x1s7wiqxjumq" path="res://skateboard_level.gdshader" id="2_uyy10"]
+[ext_resource type="Texture2D" uid="uid://366h68u2cscb" path="res://Assets/skate_back.png" id="3_uyy10"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hplts"]
+shader = ExtResource("2_uyy10")
+shader_parameter/base_speed = 0.1
+shader_parameter/speed_multiplier = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hplts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4byyh"]
+size = Vector2(643, 168.5)
+
+[node name="SkateboardLevel" type="Node2D" unique_id=500115857]
+script = ExtResource("1_cs6kp")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1023039658]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hplts")
+offset_right = 641.0
+offset_bottom = 480.0
+texture = ExtResource("3_uyy10")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=279200738]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=664233658]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartPlatform" type="StaticBody2D" parent="." unique_id=1715007356]
+physics_material_override = SubResource("PhysicsMaterial_hplts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartPlatform" unique_id=1262465962]
+position = Vector2(321, 456)
+shape = SubResource("RectangleShape2D_4byyh")
+
+[node name="skater" parent="." unique_id=1464278349 instance=ExtResource("2_ookq3")]
+position = Vector2(35, 222)
+
+[node name="PlatformTimer" type="Timer" parent="." unique_id=1056924672]
+
+[connection signal="timeout" from="PlatformTimer" to="." method="_on_platform_timer_timeout"]
