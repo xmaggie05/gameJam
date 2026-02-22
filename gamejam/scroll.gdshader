@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform float base_speed = 0.10;
+uniform float base_speed = 0.30;
 
 uniform float speed_multiplier = 1.0;
 

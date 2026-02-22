@@ -1,6 +1,7 @@
 extends Control
 
 @onready var button: TextureButton = $start
+@onready var cloud: Sprite2D = $gojo
 
 var speed: float
 const start_speed = 10.0
@@ -15,7 +16,9 @@ func _progress(delta):
 		#speed = start_speed + score / speed_modifier
 		#if speed > max_speed:
 			#speed = max_speed
-	
+
+
+
 func _on_button_pressed() -> void:
 	print("hello")
 	Global.start_game()
@@ -24,3 +27,8 @@ func _on_button_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_button_pressed_cloud() -> void:
+	cloud.visible = true
+	

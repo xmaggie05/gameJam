@@ -18,6 +18,7 @@ func _process(delta):
 		score += 1
 	
 	if not is_running:
+		reset()
 		return
 	elapsed_time += delta
 	var t: float = clamp(elapsed_time / TIME_TO_MAX, 0.0, 1.0)
@@ -39,7 +40,7 @@ func pause_for_seconds(seconds: float) -> void:
 var elapsed_time: float = 0.0
 var speed_multiplier: float = 1.0
 
-const MAX_MULTIPLIER: float = 4.0 
+const MAX_MULTIPLIER: float = 5.0 
 const TIME_TO_MAX: float    = 45.0
 
 var is_running: bool = false

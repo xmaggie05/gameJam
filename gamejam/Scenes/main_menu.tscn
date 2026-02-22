@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c5plkja884l4e" path="res://Scenes/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://bkabbiifws3y5" path="res://Assets/start_button.png" id="2_n45e2"]
+[ext_resource type="Texture2D" uid="uid://cod7xwcijfhhy" path="res://Art/main.png" id="2_trj04"]
 [ext_resource type="Texture2D" uid="uid://cxfk1m35k5jos" path="res://Assets/start_button_pressed2.png" id="3_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://ceyum48ivne2m" path="res://Assets/quit_button.png" id="4_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://csht2cx7oiben" path="res://Assets/start_button2.png" id="4_trj04"]
 [ext_resource type="Texture2D" uid="uid://cij63vj6qjhck" path="res://Assets/quit_button_pressed2.png" id="6_16hvj"]
 [ext_resource type="AudioStream" uid="uid://cgsdi0yg53lhw" path="res://Art/Game Jam 02 - 2_21_26, 11.14 PM.mp3" id="6_opfnp"]
 [ext_resource type="Texture2D" uid="uid://do7bsprusoncu" path="res://Assets/quit_button2.png" id="7_vr1f0"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_rhts7"]
+[ext_resource type="Texture2D" uid="uid://dotgtibtwsvcu" path="res://Art/cloud.png" id="10_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://fv6w6wiahf17" path="res://Art/gojo.png" id="11_t1dhk"]
 
 [node name="MainMenu" type="Control" unique_id=1955857486]
 layout_mode = 3
@@ -20,14 +21,14 @@ script = ExtResource("1_28flt")
 layout_mode = 0
 offset_right = 647.0
 offset_bottom = 485.0
-texture = SubResource("CanvasTexture_rhts7")
+texture = ExtResource("2_trj04")
 
 [node name="start" type="TextureButton" parent="." unique_id=1241999263]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 201.0
-offset_right = 391.0
-offset_bottom = 256.0
+offset_left = 317.0
+offset_top = 375.0
+offset_right = 452.0
+offset_bottom = 421.0
 texture_normal = ExtResource("2_n45e2")
 texture_pressed = ExtResource("3_yhxw7")
 texture_hover = ExtResource("4_trj04")
@@ -35,10 +36,10 @@ stretch_mode = 0
 
 [node name="quit" type="TextureButton" parent="." unique_id=618221555]
 layout_mode = 0
-offset_left = 209.0
-offset_top = 274.0
-offset_right = 390.0
-offset_bottom = 329.0
+offset_left = 452.0
+offset_top = 375.0
+offset_right = 587.0
+offset_bottom = 421.0
 texture_normal = ExtResource("4_cp0ys")
 texture_pressed = ExtResource("6_16hvj")
 texture_hover = ExtResource("7_vr1f0")
@@ -48,5 +49,26 @@ stretch_mode = 0
 stream = ExtResource("6_opfnp")
 autoplay = true
 
+[node name="cloud" type="Sprite2D" parent="." unique_id=1320820936]
+z_index = 3
+position = Vector2(328, 242)
+texture = ExtResource("10_vr1f0")
+
+[node name="gojo" type="Sprite2D" parent="." unique_id=2123608007]
+visible = false
+z_index = 1
+position = Vector2(343, 114)
+rotation = 3.1415927
+texture = ExtResource("11_t1dhk")
+
+[node name="Button" type="Button" parent="." unique_id=1656029351]
+z_index = -2
+layout_mode = 0
+offset_left = 153.0
+offset_top = 45.0
+offset_right = 488.0
+offset_bottom = 261.0
+
 [connection signal="pressed" from="start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed_cloud"]
