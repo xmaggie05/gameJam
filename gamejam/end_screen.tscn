@@ -1,11 +1,10 @@
-[gd_scene format=4 uid="uid://mnwck2ipxkvg"]
+[gd_scene format=4 uid="uid://desdiuhbgjrg7"]
 
-[ext_resource type="PackedScene" uid="uid://b43402d8voxy6" path="res://score_label.tscn" id="1_abjgy"]
-[ext_resource type="Texture2D" uid="uid://csyv8jt5t2v28" path="res://Assets/quit.png" id="1_my301"]
-[ext_resource type="Script" uid="uid://ca4niy0q647q1" path="res://end_screen.gd" id="1_xu7hh"]
-[ext_resource type="Texture2D" uid="uid://bodnpliyqhbek" path="res://Assets/Start.png" id="4_pmjk2"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_abjgy"]
+[ext_resource type="PackedScene" path="res://score_label.tscn" id="1_abjgy"]
+[ext_resource type="Script" path="res://end_screen.gd" id="1_xu7hh"]
+[ext_resource type="Texture2D" uid="uid://dkddmoiortvqr" path="res://Art/back.png" id="3_d75mr"]
+[ext_resource type="Texture2D" uid="uid://co5r6cjjpely0" path="res://Art/back_to_menu_pressed.png" id="4_be1gp"]
+[ext_resource type="Texture2D" uid="uid://def06xexyw784" path="res://Art/replay_pressed.png" id="5_kaxt3"]
 
 [sub_resource type="Image" id="Image_xu7hh"]
 data = {
@@ -151,25 +150,25 @@ modulate = Color(1, 1, 0.6627451, 1)
 layout_mode = 0
 offset_right = 638.0
 offset_bottom = 483.0
-texture = SubResource("PlaceholderTexture2D_abjgy")
+texture = ExtResource("3_d75mr")
 
 [node name="menu" type="TextureButton" parent="." unique_id=1683925979]
 layout_mode = 0
-offset_left = 208.99998
-offset_top = 216.00002
-offset_right = 265.0
-offset_bottom = 256.0
+offset_left = 196.00002
+offset_top = 236.00002
+offset_right = 316.00003
+offset_bottom = 266.0
 scale = Vector2(3.5669007, 3.1617641)
-texture_normal = ExtResource("1_my301")
+texture_normal = ExtResource("4_be1gp")
 
 [node name="Retry" type="TextureButton" parent="." unique_id=639755232]
 layout_mode = 0
-offset_left = 262.00003
-offset_top = 314.0
-offset_right = 318.00003
-offset_bottom = 354.0
+offset_left = 211.0
+offset_top = 161.0
+offset_right = 281.0
+offset_bottom = 201.0
 scale = Vector2(2.1509938, 2.1509938)
-texture_normal = ExtResource("4_pmjk2")
+texture_normal = ExtResource("5_kaxt3")
 
 [node name="highScoreLabel" type="Label" parent="." unique_id=867951438]
 layout_mode = 0
