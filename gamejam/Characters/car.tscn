@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bhi1qbrw1irvs" path="res://Art/car.png" id="2_ip70f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxl6s"]
-size = Vector2(72, 98)
+size = Vector2(72, 66)
 
 [node name="Car" type="CharacterBody2D" unique_id=374128086]
 script = ExtResource("1_nxl6s")
@@ -14,5 +14,5 @@ scale = Vector2(3.375, 3)
 texture = ExtResource("2_ip70f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1258897443]
-position = Vector2(1, 0)
+position = Vector2(1, -13)
 shape = SubResource("RectangleShape2D_nxl6s")

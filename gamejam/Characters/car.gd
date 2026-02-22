@@ -15,9 +15,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Vector2.ZERO
 	
-	if Input.is_action_just_pressed("ui_left") and target_lane > 0:
+	if Input.is_action_just_pressed("left") and target_lane > 0:
 		target_lane -= 1
-	if Input.is_action_just_pressed("ui_right") and target_lane < lanes.size() - 1:
+	if Input.is_action_just_pressed("right") and target_lane < lanes.size() - 1:
 		target_lane += 1
 	
 		

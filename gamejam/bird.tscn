@@ -1,21 +1,79 @@
 [gd_scene format=3 uid="uid://chxbmi6c8ourw"]
 
 [ext_resource type="Script" uid="uid://c3ubi8ugutxka" path="res://bird.gd" id="1_g5k2s"]
+[ext_resource type="Texture2D" uid="uid://bygkhhuckld35" path="res://Assets/bird2.png" id="2_crnqq"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_owhn0"]
+[sub_resource type="Animation" id="Animation_j88tq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cchwj"]
+resource_name = "bird_flap"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.23333333, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ljjq"]
+_data = {
+&"RESET": SubResource("Animation_j88tq"),
+&"bird_flap": SubResource("Animation_cchwj")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5k2s"]
-size = Vector2(29, 26)
+size = Vector2(54, 29)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_crnqq"]
+animation = &"bird_flap"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j88tq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cchwj"]
+states/bird_flap/node = SubResource("AnimationNodeAnimation_crnqq")
+states/bird_flap/position = Vector2(499, 108.5)
+transitions = ["Start", "bird_flap", SubResource("AnimationNodeStateMachineTransition_j88tq")]
+graph_offset = Vector2(160, 50)
 
 [node name="Bird" type="Area2D" unique_id=569822816]
 script = ExtResource("1_g5k2s")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2041768702]
-scale = Vector2(28.625002, 26)
-texture = SubResource("PlaceholderTexture2D_owhn0")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1739520986]
+libraries/ = SubResource("AnimationLibrary_6ljjq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1361774717]
+position = Vector2(-3, -0.5)
 shape = SubResource("RectangleShape2D_g5k2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2041768702]
+scale = Vector2(6, 5.45)
+texture = ExtResource("2_crnqq")
+vframes = 3
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1258174108]
+tree_root = SubResource("AnimationNodeStateMachine_cchwj")
+anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

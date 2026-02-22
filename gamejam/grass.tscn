@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c77r8kf3dm8tu"]
+
+[ext_resource type="Texture2D" uid="uid://cnobtfbi3lsko" path="res://Assets/grass.png" id="1_kl2qe"]
+[ext_resource type="Shader" uid="uid://bpaqr05dt3mx8" path="res://grass.gdshader" id="1_mw2ei"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2qnaq"]
+shader = ExtResource("1_mw2ei")
+
+[node name="Grass" type="Node2D" unique_id=587229071]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=506374748]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_2qnaq")
+scale = Vector2(6.3750005, 7.9023433)
+texture = ExtResource("1_kl2qe")

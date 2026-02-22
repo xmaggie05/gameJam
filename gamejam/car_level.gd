@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var colors: CanvasModulate = $CanvasModulate
+@onready var text: RichTextLabel = $RichTextLabel
 @export var object : PackedScene = preload("res://Characters/object.tscn")
 
 var game_running: bool
@@ -10,23 +12,26 @@ var screen_size: Vector2i
 
 
 func _ready():
-	screen_size = get_window().size
-	start_game()
-	
-func start_game():
-	game_running = true
+	game_running = false
 	game_over = false
 	scroll = 0
 
+	$ObjectTimer.stop()
 	
-func _process(delta: float):
-	if game_running:
-		scroll += scroll_speed
-		if scroll >= screen_size.y:
-			scroll = 0
-		$Road.position.y = +scroll
-		$Road2.position.y = +scroll
-		$Road3.position.y = +scroll
+	await get_tree().create_timer(3.0).timeout
+	start_game()
+
+	
+func start_game():
+	colors.color = Color(1, 1, 1, 1)
+	text.visible = false
+	
+	game_running = true
+	game_over = false
+	scroll = 0
+	$ObjectTimer.start()
+
+	
 
 
 func _on_object_timer_timeout() -> void:
