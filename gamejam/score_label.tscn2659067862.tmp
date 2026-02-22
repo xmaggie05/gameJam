@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b43402d8voxy6"]
+
+[ext_resource type="Script" uid="uid://dl2dn8sgo5ref" path="res://control.gd" id="1_j182h"]
+[ext_resource type="FontFile" uid="uid://cbade1gr7ky31" path="res://Assets/Pixeled.ttf" id="1_uhy7g"]
+
+[node name="scoreLabel" type="CanvasLayer" unique_id=1228978019]
+
+[node name="Control" type="Control" parent="." unique_id=749216632]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_j182h")
+
+[node name="scoreLabel" type="Label" parent="Control" unique_id=739857484]
+layout_mode = 0
+offset_left = 428.0
+offset_right = 520.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0.10980392, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_uhy7g")
+text = "SCORE: "

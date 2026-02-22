@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://bdqbavv46hwro"]
+[gd_scene format=3 uid="uid://dy882x63doemy"]
 
 [ext_resource type="Script" uid="uid://dmsxcc8gg6bv6" path="res://car_level.gd" id="1_5eb1d"]
-[ext_resource type="PackedScene" uid="uid://bvngjaul0okdb" path="res://Characters/car.tscn" id="1_nilji"]
-[ext_resource type="Shader" uid="uid://ct2qoyp0wkos4" path="res://scroll.gdshader" id="2_ucudc"]
-[ext_resource type="PackedScene" uid="uid://dk6q5h4imvjd6" path="res://road.tscn" id="4_ucudc"]
-[ext_resource type="PackedScene" uid="uid://c77r8kf3dm8tu" path="res://grass.tscn" id="5_ddn36"]
+[ext_resource type="PackedScene" path="res://Characters/car.tscn" id="1_nilji"]
+[ext_resource type="Shader" path="res://scroll.gdshader" id="2_ucudc"]
+[ext_resource type="PackedScene" path="res://road.tscn" id="4_ucudc"]
+[ext_resource type="PackedScene" path="res://grass.tscn" id="5_ddn36"]
+[ext_resource type="PackedScene" uid="uid://b43402d8voxy6" path="res://score_label.tscn" id="6_xctb1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ucudc"]
 shader = ExtResource("2_ucudc")
@@ -59,5 +60,7 @@ offset_bottom = 314.0
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
 text = "Dodge!"
+
+[node name="scoreLabel" parent="." unique_id=1228978019 instance=ExtResource("6_xctb1")]
 
 [connection signal="timeout" from="ObjectTimer" to="." method="_on_object_timer_timeout"]

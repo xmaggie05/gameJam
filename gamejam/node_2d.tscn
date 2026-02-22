@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dsm2t522nd03d"]
+
+[node name="score" type="Node2D" unique_id=695877491]
+
+[node name="Control" type="Control" parent="." unique_id=1308260805]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(16.013668, 12.019146)
+
+[node name="Label" type="Label" parent="Control" unique_id=1247634053]
+layout_mode = 0
+offset_left = 584.9378
+offset_top = 23.129763
+offset_right = 624.9378
+offset_bottom = 46.12976
+scale = Vector2(0.9812384, 0.60405076)
+text = "0"

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://mnwck2ipxkvg"]
+
+[ext_resource type="PackedScene" uid="uid://b43402d8voxy6" path="res://score_label.tscn" id="1_abjgy"]
+[ext_resource type="Texture2D" uid="uid://csyv8jt5t2v28" path="res://Assets/quit.png" id="1_my301"]
+[ext_resource type="Script" uid="uid://ca4niy0q647q1" path="res://end_screen.gd" id="1_xu7hh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_abjgy"]
+
+[node name="endScreen" type="Control" unique_id=1648845204]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xu7hh")
+
+[node name="scoreLabel" parent="." unique_id=1228978019 instance=ExtResource("1_abjgy")]
+
+[node name="endScreen" type="TextureRect" parent="." unique_id=1468635614]
+modulate = Color(1, 1, 0.6627451, 1)
+layout_mode = 0
+offset_right = 638.0
+offset_bottom = 483.0
+texture = SubResource("PlaceholderTexture2D_abjgy")
+
+[node name="MainMenu" type="TextureButton" parent="." unique_id=1683925979]
+layout_mode = 0
+offset_left = 208.99998
+offset_top = 216.00002
+offset_right = 265.0
+offset_bottom = 256.0
+scale = Vector2(3.5669007, 3.1617641)
+texture_normal = ExtResource("1_my301")
+
+[node name="Retry" type="TextureButton" parent="." unique_id=639755232]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

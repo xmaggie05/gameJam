@@ -1,12 +1,13 @@
-[gd_scene format=3 uid="uid://de8ovic2vat4d"]
+[gd_scene format=3 uid="uid://4bcicnbc2hx2"]
 
 [ext_resource type="Script" uid="uid://s2eay6634fo0" path="res://horse_level.gd" id="1_i45n8"]
-[ext_resource type="PackedScene" path="res://horse.tscn" id="2_2g8bj"]
+[ext_resource type="PackedScene" uid="uid://1r650kmffcep" path="res://horse.tscn" id="2_2g8bj"]
 [ext_resource type="Script" uid="uid://bms66oumxayxe" path="res://grass_background.gd" id="2_rcdom"]
 [ext_resource type="Script" uid="uid://cibf3yonx8if1" path="res://horse.gd" id="3_2g8bj"]
 [ext_resource type="PackedScene" uid="uid://c13th4apwvmq5" path="res://fence.tscn" id="4_pyqi7"]
 [ext_resource type="Texture2D" uid="uid://d2fq8th8qmg5g" path="res://Art/grassBackground.png" id="5_rcdom"]
 [ext_resource type="Script" uid="uid://bw833p2wpsbhv" path="res://fence_timer.gd" id="7_rcdom"]
+[ext_resource type="PackedScene" uid="uid://b43402d8voxy6" path="res://score_label.tscn" id="8_pn78p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhby4"]
 size = Vector2(10.6764965, 20)
@@ -44,5 +45,7 @@ position = Vector2(719, 409)
 [node name="fenceTimer" type="Timer" parent="." unique_id=1514286109]
 autostart = true
 script = ExtResource("7_rcdom")
+
+[node name="scoreLabel" parent="." unique_id=1228978019 instance=ExtResource("8_pn78p")]
 
 [connection signal="timeout" from="fenceTimer" to="." method="_on_fence_timer_timeout"]

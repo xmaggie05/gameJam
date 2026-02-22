@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c8srcfo80j5nl"]
+
+[ext_resource type="FontFile" uid="uid://cbade1gr7ky31" path="res://Assets/Pixeled.ttf" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://c413imq7r353l" path="res://deduct.gd" id="1_62e2m"]
+
+[node name="deduct" type="Control" unique_id=614237868]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62e2m")
+
+[node name="Label" type="Label" parent="." unique_id=1430968409]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 26.0
+offset_right = 601.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.9950097, 0.10503913, 0.12746528, 1)
+theme_override_fonts/font = ExtResource("1_0fbet")
+text = "-100"

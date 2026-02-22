@@ -40,7 +40,6 @@ func start_game():
 	$BirdTimer.start()
 
 func _process(delta: float):
-
 	if not game_running:
 		return
 
@@ -48,6 +47,8 @@ func _process(delta: float):
 	if scroll >= screen_size.x:
 		scroll = 0
 		$TextureRect.position.x = -scroll
+		
+	
 
 func _on_bird_timer_timeout() -> void:
 	var birdInstance = bird.instantiate()
