@@ -1,11 +1,15 @@
 shader_type canvas_item;
 
+uniform float base_speed = 0.25;
+
+uniform float speed_multiplier = 1.0;
+
 void vertex() {
-	UV.y -= TIME * 0.30;
+	UV.y -= TIME * base_speed * speed_multiplier;
 }
 
 void fragment() {
-	// Called for every pixel the material is visible on.
+   
 }
 
 //void light() {

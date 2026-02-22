@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c42g3gii6apd"]
+
+[ext_resource type="Script" uid="uid://c5qo51qun3iev" path="res://skater.gd" id="1_vo2sv"]
+[ext_resource type="Texture2D" uid="uid://bce1gjdge5s5u" path="res://Art/skater.png" id="2_cg4j7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi3ip"]
+size = Vector2(45.5, 51)
+
+[node name="skater" type="CharacterBody2D" unique_id=1464278349]
+script = ExtResource("1_vo2sv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1147452630]
+scale = Vector2(2, 2)
+texture = ExtResource("2_cg4j7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=367516058]
+position = Vector2(2.75, 1)
+shape = SubResource("RectangleShape2D_qi3ip")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1502350083]

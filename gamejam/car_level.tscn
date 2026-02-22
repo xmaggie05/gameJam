@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dmsxcc8gg6bv6" path="res://car_level.gd" id="1_5eb1d"]
 [ext_resource type="PackedScene" path="res://Characters/car.tscn" id="1_nilji"]
-[ext_resource type="Shader" path="res://scroll.gdshader" id="2_ucudc"]
-[ext_resource type="PackedScene" path="res://road.tscn" id="4_ucudc"]
-[ext_resource type="PackedScene" path="res://grass.tscn" id="5_ddn36"]
+
 [ext_resource type="PackedScene" uid="uid://b43402d8voxy6" path="res://score_label.tscn" id="6_xctb1"]
+[ext_resource type="PackedScene" uid="uid://bvngjaul0okdb" path="res://Characters/car.tscn" id="1_nilji"]
+[ext_resource type="Shader" uid="uid://ct2qoyp0wkos4" path="res://scroll.gdshader" id="2_ucudc"]
+[ext_resource type="Texture2D" uid="uid://bygvr5s04hoo0" path="res://Art/roads.png" id="3_ucudc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ucudc"]
 shader = ExtResource("2_ucudc")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_xhjr4"]
+shader_parameter/base_speed = 0.2
+shader_parameter/speed_multiplier = 1.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ddn36"]
 light_mode = 1
@@ -23,30 +24,15 @@ texture_repeat = 2
 material = SubResource("ShaderMaterial_ucudc")
 offset_right = 646.0
 offset_bottom = 484.0
-texture = SubResource("CanvasTexture_xhjr4")
+texture = ExtResource("3_ucudc")
 
 [node name="Car" parent="." unique_id=374128086 instance=ExtResource("1_nilji")]
 z_index = 1
 position = Vector2(328, 358)
 
-[node name="Road" parent="." unique_id=1590495783 instance=ExtResource("4_ucudc")]
-position = Vector2(328, 0)
-
-[node name="Road2" parent="." unique_id=1942468631 instance=ExtResource("4_ucudc")]
-position = Vector2(168, 0)
-
-[node name="Road3" parent="." unique_id=495487742 instance=ExtResource("4_ucudc")]
-position = Vector2(488, 0)
-
 [node name="ObjectTimer" type="Timer" parent="." unique_id=1908421993]
 one_shot = true
 autostart = true
-
-[node name="Grass" parent="." unique_id=587229071 instance=ExtResource("5_ddn36")]
-position = Vector2(-14, 227)
-
-[node name="Grass2" parent="." unique_id=637981964 instance=ExtResource("5_ddn36")]
-position = Vector2(670, 230)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1874897624]
 color = Color(0.5489626, 0.5489626, 0.54896253, 1)

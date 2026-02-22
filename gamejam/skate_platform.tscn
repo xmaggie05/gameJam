@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bddrgkwq7ak7d"]
+
+[ext_resource type="Script" uid="uid://cdfvx0txgvpvs" path="res://skate_platform.gd" id="1_v8cll"]
+[ext_resource type="Texture2D" uid="uid://coo6g0a5683sh" path="res://Art/skate_plat.png" id="2_nw4ct"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nw4ct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8cll"]
+size = Vector2(160, 160)
+
+[node name="SkatePlatform" type="StaticBody2D" unique_id=547569633]
+physics_material_override = SubResource("PhysicsMaterial_nw4ct")
+script = ExtResource("1_v8cll")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139268917]
+position = Vector2(-160, -162)
+scale = Vector2(5, 5)
+texture = ExtResource("2_nw4ct")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1408802289]
+position = Vector2(-81, -82)
+shape = SubResource("RectangleShape2D_v8cll")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=296383323]
+position = Vector2(1, -2)
+rect = Rect2(-80, -80, 160, 160)
