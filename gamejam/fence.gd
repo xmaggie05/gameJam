@@ -7,7 +7,9 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body) -> void:
 	if body.name == "horse":
-		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+		Global.deduct_points(100)
+		Global.stop_game()
+		get_tree().change_scene_to_file("res://end_screen.tscn")
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()

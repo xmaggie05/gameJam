@@ -16,8 +16,10 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Vector2.ZERO
 	
 	if Input.is_action_just_pressed("left") and target_lane > 0:
+		$"../CarSound".play()
 		target_lane -= 1
 	if Input.is_action_just_pressed("right") and target_lane < lanes.size() - 1:
+		$"../CarSound".play()
 		target_lane += 1
 	
 		

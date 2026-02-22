@@ -16,4 +16,6 @@ func _ready() -> void:
 		speed = base_speed
 
 func _on_body_entered(body: Node2D) -> void:
+	$"../Carhit".play()
+	Global.deduct_points(100)
 	get_tree().change_scene_to_file("res://horse_level.tscn")

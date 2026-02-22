@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://d2fq8th8qmg5g" path="res://Art/grassBackground.png" id="5_rcdom"]
 [ext_resource type="Script" uid="uid://bw833p2wpsbhv" path="res://fence_timer.gd" id="7_rcdom"]
 [ext_resource type="PackedScene" uid="uid://b43402d8voxy6" path="res://score_label.tscn" id="8_pn78p"]
+[ext_resource type="AudioStream" uid="uid://00pvi8hjujst" path="res://Assets/game jam act song - 2_22_26, 10.21 AM.mp3" id="9_5l6t4"]
+[ext_resource type="AudioStream" uid="uid://banev0t4egpkm" path="res://Assets/horseJump.wav" id="10_bqk8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhby4"]
 size = Vector2(10.6764965, 20)
@@ -52,6 +54,7 @@ autostart = true
 script = ExtResource("7_rcdom")
 
 [node name="scoreLabel" parent="." unique_id=1228978019 instance=ExtResource("8_pn78p")]
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1110256670]
 top_level = true
 color = Color(0.36471134, 0.36471146, 0.3647113, 1)
@@ -64,5 +67,12 @@ offset_right = 597.0
 offset_bottom = 342.0
 theme_override_font_sizes/normal_font_size = 45
 text = "Jump!"
+
+[node name="GameJamActSong22226,10_21Am" type="AudioStreamPlayer" parent="." unique_id=1056917614]
+stream = ExtResource("9_5l6t4")
+autoplay = true
+
+[node name="HorseJump" type="AudioStreamPlayer" parent="." unique_id=1130871828]
+stream = ExtResource("10_bqk8k")
 
 [connection signal="timeout" from="fenceTimer" to="." method="_on_fence_timer_timeout"]

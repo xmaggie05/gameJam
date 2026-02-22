@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dcp6erohteg20" path="res://Characters/airplane.tscn" id="1_6n6at"]
 [ext_resource type="Script" uid="uid://4xri72jb2d64" path="res://Levels/airplane_level.gd" id="1_s8emw"]
-
-[ext_resource type="Shader" path="res://Levels/scroll_side.gdshader" id="2_opb1l"]
-[ext_resource type="PackedScene" uid="uid://chxbmi6c8ourw" path="res://bird.tscn" id="3_dcr10"]
-[ext_resource type="PackedScene" uid="uid://b43402d8voxy6" path="res://score_label.tscn" id="6_8pb76"]
 [ext_resource type="Shader" uid="uid://0u5vej3iysna" path="res://Levels/scroll_side.gdshader" id="2_opb1l"]
 [ext_resource type="PackedScene" uid="uid://chxbmi6c8ourw" path="res://bird.tscn" id="3_dcr10"]
 [ext_resource type="Texture2D" uid="uid://drqoqw0i2ghal" path="res://Art/sky2.png" id="3_opb1l"]
+[ext_resource type="PackedScene" uid="uid://b43402d8voxy6" path="res://score_label.tscn" id="6_8pb76"]
+[ext_resource type="AudioStream" uid="uid://00pvi8hjujst" path="res://Assets/game jam act song - 2_22_26, 10.21 AM.mp3" id="7_yjfks"]
+[ext_resource type="AudioStream" uid="uid://dqnqg83f6krat" path="res://Assets/Jumpplane.wav" id="8_7m7is"]
+[ext_resource type="AudioStream" uid="uid://m33f77lhmhk2" path="res://Assets/airplanehit.wav" id="9_7yr28"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8pb76"]
 shader = ExtResource("2_opb1l")
@@ -71,6 +71,16 @@ bbcode_enabled = true
 text = "Avoid the birds!"
 
 [node name="scoreLabel" parent="." unique_id=1228978019 instance=ExtResource("6_8pb76")]
+
+[node name="GameJamActSong22226,10_21Am" type="AudioStreamPlayer" parent="." unique_id=1012346343]
+stream = ExtResource("7_yjfks")
+autoplay = true
+
+[node name="Jumpplane" type="AudioStreamPlayer" parent="." unique_id=446185100]
+stream = ExtResource("8_7m7is")
+
+[node name="Airplanehit" type="AudioStreamPlayer" parent="." unique_id=177908657]
+stream = ExtResource("9_7yr28")
 
 [connection signal="body_entered" from="Ground" to="." method="_on_ground_body_entered"]
 [connection signal="body_entered" from="Ground2" to="." method="_on_ground_2_body_entered"]

@@ -21,6 +21,7 @@ func _physics_process(delta):
 
 	# Jump
 	if Input.is_action_just_pressed("up") and is_on_floor():
+		$"../HorseJump".play()
 		velocity.y = -jump_force
 
 	# Animation
