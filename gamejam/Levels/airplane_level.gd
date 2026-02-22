@@ -13,7 +13,7 @@ const BASE_SPAWN_MAX: float = 2.0
 const MIN_SPAWN_WAIT: float = 0.35
 
 func _change_scene() -> void:
-	GameState.stop_timing()
+	Global.stop_timing()
 	get_tree().change_scene_to_file("res://car_level.tscn")
 
 func _ready() -> void:
@@ -29,8 +29,8 @@ func start_game() -> void:
 	game_running = true
 	airplane.game_started = true
 
-	if not GameState.is_running:
-		GameState.start_timing()
+	if not Global.is_running:
+		Global.start_timing()
 
 	$BirdTimer.start()
 
@@ -38,9 +38,9 @@ func _process(_delta: float) -> void:
 	if not game_running:
 		return
 
-	bg_mat.set_shader_parameter("speed_multiplier", GameState.speed_multiplier)
+	bg_mat.set_shader_parameter("speed_multiplier", Global.speed_multiplier)
 
-	var t: float = clamp(GameState.elapsed_time / GameState.TIME_TO_MAX, 0.0, 1.0)
+	var t: float = clamp(Global.elapsed_time / Global.TIME_TO_MAX, 0.0, 1.0)
 	$BirdTimer.wait_time = lerp(BASE_SPAWN_MAX, MIN_SPAWN_WAIT, t)
 
 func _on_bird_timer_timeout() -> void:

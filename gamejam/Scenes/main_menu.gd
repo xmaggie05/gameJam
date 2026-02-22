@@ -1,6 +1,7 @@
 extends Control
 
-@onready var button: Button = $MainMenu/Button
+@onready var button: TextureButton = $start
+
 var speed: float
 const start_speed = 10.0
 const score_modifier: int = 10

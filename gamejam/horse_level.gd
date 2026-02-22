@@ -16,7 +16,7 @@ const MIN_SPAWN_WAIT: float  = 0.4
 func _ready():
 	game_running = false
 	$fenceTimer.stop()
-	GameState.reset()
+	Global.reset()
 
 	await get_tree().create_timer(3.0).timeout
 	start_game()
@@ -25,9 +25,9 @@ func _process(_delta: float):
 	if not game_running:
 		return
 
-	grass_bg.backspeed = BASE_BACKSPEED * GameState.speed_multiplier
+	grass_bg.backspeed = BASE_BACKSPEED * Global.speed_multiplier
 
-	var t: float = clamp(GameState.elapsed_time / GameState.TIME_TO_MAX, 0.0, 1.0)
+	var t: float = clamp(Global.elapsed_time / Global.TIME_TO_MAX, 0.0, 1.0)
 	$fenceTimer.wait_time = lerp(BASE_SPAWN_MAX, MIN_SPAWN_WAIT, t)
 
 func start_game():
@@ -35,7 +35,7 @@ func start_game():
 	text.visible = false
 
 	game_running = true
-	GameState.start_timing()
+	Global.start_timing()
 	$fenceTimer.start()
 
 func _on_fence_timer_timeout():

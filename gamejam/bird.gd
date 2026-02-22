@@ -11,7 +11,7 @@ func _on_body_entered(body):
 @export var base_speed: float = 300.0
 
 func _physics_process(delta: float) -> void:
-	position.x -= base_speed * GameState.speed_multiplier * delta
+	position.x -= base_speed * Global.speed_multiplier * delta
 
 
 

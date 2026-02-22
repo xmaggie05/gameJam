@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://da0cavy7psp3k"
-GameState="*uid://bnth61p5rien4"
 
 [display]
 

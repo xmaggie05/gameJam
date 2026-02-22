@@ -3,7 +3,7 @@ extends Area2D
 const BASE_SPEED: float = 750.0
 
 func _process(delta: float) -> void:
-	position += Vector2.LEFT * BASE_SPEED * GameState.speed_multiplier * delta
+	position += Vector2.LEFT * BASE_SPEED * Global.speed_multiplier * delta
 
 func _on_body_entered(body) -> void:
 	if body.name == "horse":

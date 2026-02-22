@@ -9,7 +9,7 @@ func set_width(w: float) -> void:
 	$CollisionShape2D.position.x = w / 2.0
 
 func _process(delta: float) -> void:
-	position.x -= BASE_SPEED * GameState.speed_multiplier * delta
+	position.x -= BASE_SPEED * Global.speed_multiplier * delta
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()

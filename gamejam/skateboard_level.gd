@@ -35,21 +35,21 @@ func start_game() -> void:
 	text.visible = false
 	game_running  = true
 
-	if not GameState.is_running:
-		GameState.start_timing()
+	if not Global.is_running:
+		Global.start_timing()
 
 
 func _process(delta: float) -> void:
 	if not game_running:
 		return
 
-	bg_mat.set_shader_parameter("speed_multiplier", GameState.speed_multiplier)
+	bg_mat.set_shader_parameter("speed_multiplier", Global.speed_multiplier)
 
-	var scroll_speed: float = 400.0 * GameState.speed_multiplier
+	var scroll_speed: float = 400.0 * Global.speed_multiplier
 	next_x -= scroll_speed * delta
 
 	if next_x <= SCREEN_RIGHT:
-		var t: float       = clamp(GameState.elapsed_time / GameState.TIME_TO_MAX, 0.0, 1.0)
+		var t: float       = clamp(Global.elapsed_time / Global.TIME_TO_MAX, 0.0, 1.0)
 		var min_gap: float = lerp(MIN_GAP_BASE, MIN_GAP_MAX, t)
 		var max_gap: float = lerp(MAX_GAP_BASE, MAX_GAP_MAX, t)
 
