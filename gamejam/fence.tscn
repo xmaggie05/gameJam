@@ -1,37 +1,42 @@
 [gd_scene format=3 uid="uid://c13th4apwvmq5"]
 
 [ext_resource type="Script" uid="uid://x8f4h470vutj" path="res://fence.gd" id="1_hsy3x"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8qd4e"]
+[ext_resource type="Texture2D" uid="uid://bunljab0emiad" path="res://Assets/fence2.png" id="2_5gl7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsy3x"]
-size = Vector2(8.150918, 7.7393007)
+size = Vector2(16.132568, 9.459146)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qd4e"]
-size = Vector2(0.44233826, 0.43807065)
+size = Vector2(0.37708402, 0.21567155)
 
 [node name="fence" type="Area2D" unique_id=1168590376]
 script = ExtResource("1_hsy3x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=907922172]
-position = Vector2(1, -2)
-scale = Vector2(32.982815, -31.841064)
-texture = SubResource("PlaceholderTexture2D_8qd4e")
+position = Vector2(-14, 102)
+scale = Vector2(3.3945405, 3.3945405)
+texture = ExtResource("2_5gl7b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1655908748]
-position = Vector2(0.41233099, -1.75)
+position = Vector2(-14.830866, -6.2500005)
 scale = Vector2(4.070135, 4.070135)
 shape = SubResource("RectangleShape2D_hsy3x")
 debug_color = Color(0.69803923, 0.4862745, 0.28235295, 0.6)
 
 [node name="detection" type="Area2D" parent="." unique_id=1975372774]
-position = Vector2(132, -11)
-scale = Vector2(4.070135, 4.070135)
+position = Vector2(312.00003, -29)
+scale = Vector2(10.180436, 10.180436)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection" unique_id=1349930978]
-position = Vector2(-32.233482, 2.2017958)
+position = Vector2(-32.074387, 2.283792)
 rotation = -3.1415925
-scale = Vector2(17.990274, 17.990274)
+scale = Vector2(17.99027, 17.99027)
 shape = SubResource("RectangleShape2D_8qd4e")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=392697209]
+position = Vector2(-13, -20)
+rotation = -3.1415925
+scale = Vector2(-1.5533564, 3.4664893)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

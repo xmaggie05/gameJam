@@ -14,34 +14,36 @@ size = Vector2(10.6764965, 20)
 [node name="horse_level" type="Node2D" unique_id=1914466682]
 script = ExtResource("1_i45n8")
 
-[node name="horse" parent="." unique_id=1562125514 instance=ExtResource("2_2g8bj")]
-position = Vector2(103, 359)
-script = ExtResource("3_2g8bj")
-
 [node name="grassBackground" type="ParallaxBackground" parent="." unique_id=1179324920]
 script = ExtResource("2_rcdom")
 
-[node name="Parallax2D" type="Parallax2D" parent="grassBackground" unique_id=1677127799]
-repeat_size = Vector2(790, 0)
-autoscroll = Vector2(-750, 0)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="grassBackground" unique_id=2138095943]
+position = Vector2(2, -1)
+scale = Vector2(0.8201832, 0.78708977)
+motion_mirroring = Vector2(950, 0)
 
-[node name="background" type="Sprite2D" parent="grassBackground/Parallax2D" unique_id=122110788]
-position = Vector2(395.00003, 301.00003)
-scale = Vector2(1.2352134, 1.258119)
+[node name="background" type="Sprite2D" parent="grassBackground/ParallaxLayer" unique_id=122110788]
+position = Vector2(386.00006, 299.00003)
+scale = Vector2(1.2210371, 1.2436799)
 texture = ExtResource("2_jhby4")
+
+[node name="horse" parent="." unique_id=1562125514 instance=ExtResource("2_2g8bj")]
+position = Vector2(111, 325.00003)
+script = ExtResource("3_2g8bj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1025800163]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=604193491]
-position = Vector2(3442.0002, 470)
+position = Vector2(3437, 450)
 rotation = 3.1415927
 scale = Vector2(644.49744, -4.034542)
 shape = SubResource("RectangleShape2D_jhby4")
 
 [node name="fence" parent="." unique_id=1528565561 instance=ExtResource("4_pyqi7")]
-position = Vector2(719, 409)
+position = Vector2(1172, 315)
 
 [node name="fenceTimer" type="Timer" parent="." unique_id=1514286109]
+wait_time = 1.5
 autostart = true
 script = ExtResource("7_rcdom")
 
