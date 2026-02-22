@@ -1,13 +1,19 @@
 extends Area2D
 
+@onready var strColor = $"../scoreLabel"
+
+func _on_body_entered(body):
+	if (body.name == "Airplane"):
+		Global.deduct_points(100)
+		get_tree().change_scene_to_file("res://car_level.tscn")
+		
+
 @export var base_speed: float = 300.0
 
 func _physics_process(delta: float) -> void:
 	position.x -= base_speed * GameState.speed_multiplier * delta
 
-func _on_body_entered(body: Node) -> void:
-	if body.name == "Airplane":
-		get_tree().change_scene_to_file("res://car_level.tscn")
+
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
