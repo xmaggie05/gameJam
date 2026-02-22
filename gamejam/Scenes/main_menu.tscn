@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://dqw0jykn1k8dm"]
 
 [ext_resource type="Script" uid="uid://c5plkja884l4e" path="res://Scenes/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://bkabbiifws3y5" path="res://Assets/start_button.png" id="2_n45e2"]
+[ext_resource type="Texture2D" uid="uid://cxfk1m35k5jos" path="res://Assets/start_button_pressed2.png" id="3_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://ceyum48ivne2m" path="res://Assets/quit_button.png" id="4_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://csht2cx7oiben" path="res://Assets/start_button2.png" id="4_trj04"]
+[ext_resource type="Texture2D" uid="uid://cij63vj6qjhck" path="res://Assets/quit_button_pressed2.png" id="6_16hvj"]
+[ext_resource type="AudioStream" uid="uid://cgsdi0yg53lhw" path="res://Art/Game Jam 02 - 2_21_26, 11.14 PM.mp3" id="6_opfnp"]
+[ext_resource type="Texture2D" uid="uid://do7bsprusoncu" path="res://Assets/quit_button2.png" id="7_vr1f0"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_rhts7"]
 
@@ -15,34 +22,31 @@ offset_right = 647.0
 offset_bottom = 485.0
 texture = SubResource("CanvasTexture_rhts7")
 
-[node name="Button" type="Button" parent="." unique_id=1105383431]
+[node name="start" type="TextureButton" parent="." unique_id=1241999263]
 layout_mode = 0
 offset_left = 210.0
 offset_top = 201.0
 offset_right = 391.0
 offset_bottom = 256.0
+texture_normal = ExtResource("2_n45e2")
+texture_pressed = ExtResource("3_yhxw7")
+texture_hover = ExtResource("4_trj04")
+stretch_mode = 0
 
-[node name="Label" type="Label" parent="Button" unique_id=1676094870]
-layout_mode = 0
-offset_left = 69.0
-offset_top = 18.0
-offset_right = 109.0
-offset_bottom = 41.0
-text = "start"
-
-[node name="Button2" type="Button" parent="." unique_id=1820636101]
+[node name="quit" type="TextureButton" parent="." unique_id=618221555]
 layout_mode = 0
 offset_left = 209.0
 offset_top = 274.0
 offset_right = 390.0
 offset_bottom = 329.0
+texture_normal = ExtResource("4_cp0ys")
+texture_pressed = ExtResource("6_16hvj")
+texture_hover = ExtResource("7_vr1f0")
+stretch_mode = 0
 
-[node name="Label" type="Label" parent="Button2" unique_id=1919173808]
-layout_mode = 0
-offset_left = 72.0
-offset_top = 14.0
-offset_right = 112.0
-offset_bottom = 37.0
-text = "exit"
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2098586367]
+stream = ExtResource("6_opfnp")
+autoplay = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

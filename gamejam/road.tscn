@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dk6q5h4imvjd6"]
+
+[ext_resource type="Script" uid="uid://b53a6dqra40wg" path="res://road.gd" id="1_x0d2t"]
+[ext_resource type="Texture2D" uid="uid://dij6ctecrkd4x" path="res://Art/road2.png" id="2_3veuu"]
+[ext_resource type="Shader" uid="uid://ct2qoyp0wkos4" path="res://scroll.gdshader" id="2_bpeel"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twbfo"]
+shader = ExtResource("2_bpeel")
+
+[node name="Road" type="Node2D" unique_id=495487742]
+script = ExtResource("1_x0d2t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1515509435]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_twbfo")
+position = Vector2(0, 3.0517578e-05)
+scale = Vector2(5, 15)
+texture = ExtResource("2_3veuu")

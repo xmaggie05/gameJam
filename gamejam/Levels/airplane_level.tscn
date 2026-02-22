@@ -2,32 +2,39 @@
 
 [ext_resource type="PackedScene" uid="uid://dcp6erohteg20" path="res://Characters/airplane.tscn" id="1_6n6at"]
 [ext_resource type="Script" uid="uid://4xri72jb2d64" path="res://Levels/airplane_level.gd" id="1_s8emw"]
+[ext_resource type="Texture2D" uid="uid://dd2i5lqhyduvi" path="res://Art/sky.png" id="2_dcr10"]
+[ext_resource type="Shader" uid="uid://0u5vej3iysna" path="res://Levels/scroll_side.gdshader" id="2_opb1l"]
 [ext_resource type="PackedScene" uid="uid://chxbmi6c8ourw" path="res://bird.tscn" id="3_dcr10"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_7gf5x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8pb76"]
+shader = ExtResource("2_opb1l")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqlma"]
 size = Vector2(673, 105)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dcr10"]
+light_mode = 1
 
 [node name="AirplaneLevel" type="Node2D" unique_id=375056364]
 script = ExtResource("1_s8emw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=864975025]
-offset_left = 7.0
-offset_top = -7.0
-offset_right = 4975.0
-offset_bottom = 476.0
-texture = SubResource("CanvasTexture_7gf5x")
+texture_repeat = 2
+material = SubResource("ShaderMaterial_8pb76")
+offset_top = -93.0
+offset_right = 1280.0
+offset_bottom = 598.0
+texture = ExtResource("2_dcr10")
 
 [node name="Ground" type="Area2D" parent="." unique_id=379179869]
-position = Vector2(0, 1)
+position = Vector2(10, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=994871830]
 position = Vector2(321, 516)
 shape = SubResource("RectangleShape2D_iqlma")
 
 [node name="Ground2" type="Area2D" parent="." unique_id=741896821]
-position = Vector2(388, 47)
+position = Vector2(378, 37)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2" unique_id=699630327]
 position = Vector2(-59, -86)
@@ -37,4 +44,26 @@ shape = SubResource("RectangleShape2D_iqlma")
 position = Vector2(137, 244)
 
 [node name="bird" parent="." unique_id=569822816 instance=ExtResource("3_dcr10")]
-position = Vector2(111, 187)
+position = Vector2(500, 116)
+
+[node name="BirdTimer" type="Timer" parent="." unique_id=365455503]
+one_shot = true
+autostart = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=502318226]
+color = Color(0.49943948, 0.49943954, 0.49943948, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1224047662]
+light_mask = 0
+material = SubResource("CanvasItemMaterial_dcr10")
+offset_left = 490.0
+offset_top = 186.0
+offset_right = 577.0
+offset_bottom = 336.0
+theme_override_font_sizes/normal_font_size = 29
+bbcode_enabled = true
+text = "Avoid the birds!"
+
+[connection signal="body_entered" from="Ground" to="." method="_on_ground_body_entered"]
+[connection signal="body_entered" from="Ground2" to="." method="_on_ground_2_body_entered"]
+[connection signal="timeout" from="BirdTimer" to="." method="_on_bird_timer_timeout"]

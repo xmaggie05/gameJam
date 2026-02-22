@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bv4nbwutmuqpm"]
+
+[ext_resource type="Script" uid="uid://do0dfyivdd5j1" path="res://Characters/object.gd" id="1_0iedf"]
+[ext_resource type="Texture2D" uid="uid://bpbpjvtdv3vh6" path="res://Assets/traffic_cone.png" id="2_grncx"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_grncx"]
+points = PackedVector2Array(0, -33, -15, 1, -32, 15, 0, 30, 32, 15, 15, 1)
+
+[node name="Object" type="Area2D" unique_id=234997963]
+script = ExtResource("1_0iedf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1258918028]
+position = Vector2(1.1368684e-13, 0)
+scale = Vector2(2, 1.899)
+texture = ExtResource("2_grncx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1315926027]
+shape = SubResource("ConvexPolygonShape2D_grncx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
